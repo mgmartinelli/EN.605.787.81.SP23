@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+p {
+  font-family: Helvetica;
+  color: black;
+  height: 150px;
+  display: block;
+  padding-top: 15px;
+}
+
+.container {
+  position: relative;
+  border: 1px solid black;
+  padding: 1.5rem;
+  background-color: lightgrey;
+  overflow: hidden;
+}
+
+.container:hover {
+  overflow: auto;
+  cursor: s-resize;
+}
+
+.section-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: larger;
+  font-weight: bold;
+}
