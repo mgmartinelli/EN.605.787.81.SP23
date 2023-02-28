@@ -19,6 +19,7 @@ $(function () {
     "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
   var menuItemsTitleHtml = "snippets/menu-items-title.html";
   var menuItemHtml = "snippets/menu-item.html";
+  var aboutHtml = "snippets/about-snippet.html";
 
   // Convenience function for inserting innerHTML for 'select'
   var insertHtml = function (selector, html) {
@@ -270,6 +271,35 @@ $(function () {
     portionValue = "(" + portionValue + ")";
     html = insertProperty(html, portionPropName, portionValue);
     return html;
+  }
+
+  dc.loadAbout = function () {
+    $ajaxUtils.sendGetRequest(
+      aboutHtml,
+      function (aboutHtml) {
+        const rating = generateRating();
+
+        for (i = 1; i <= 5; i++) {
+          const className = "class" + i;
+
+          if (i <= rating) {
+            aboutHtml = insertProperty(aboutHtml, className, "fa fa-star");
+          } else {
+            aboutHtml = insertProperty(aboutHtml, className, "fa fa-star-o");
+          }
+        }
+
+        aboutHtml = insertProperty(aboutHtml, "rating", rating);
+        insertHtml("#main-content", aboutHtml);
+      },
+      false
+    );
+  };
+
+  function generateRating() {
+    const randomRating = Math.floor(Math.random() * 5) + 1;
+
+    return randomRating;
   }
 
   global.$dc = dc;
