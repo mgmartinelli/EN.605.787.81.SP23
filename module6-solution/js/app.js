@@ -11,7 +11,10 @@
       const input = $scope.menu;
 
       if (input !== undefined) {
-        const inputSplit = input.split(",");
+        const inputSplit = input
+          .split(",")
+          .map((i) => i.trim())
+          .filter((s) => !!s);
 
         if (input === "" || inputSplit.length < 1) {
           $scope.validationMessage = "Please enter data first";
