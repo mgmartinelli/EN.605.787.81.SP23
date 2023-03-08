@@ -9,6 +9,8 @@
 
     $scope.checkMenu = function () {
       const input = $scope.menu;
+      let myColor = "red";
+      let myBorder = "1px solid red";
 
       if (input !== undefined) {
         const inputSplit = input
@@ -20,12 +22,19 @@
           $scope.validationMessage = "Please enter data first";
         } else if (inputSplit.length <= 3) {
           $scope.validationMessage = "Enjoy!";
+          myColor = "green";
+          myBorder = "1px solid green";
         } else {
           $scope.validationMessage = "Too much!";
+          myColor = "green";
+          myBorder = "1px solid green";
         }
       } else {
         $scope.validationMessage = "Please enter data first";
       }
+
+      $scope.myColor = myColor;
+      $scope.myBorder = myBorder;
     };
   }
 })();

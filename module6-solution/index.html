@@ -24,6 +24,7 @@
           placeholder="list comma separated dishes you usually have for lunch. Empty items do not count."
           class="form-control"
           ng-model="menu"
+          ng-style="{border: myBorder}"
         />
       </div>
       <div class="form-group">
@@ -31,7 +32,9 @@
           Check If Too Much
         </button>
       </div>
-      <div class="form-group message">{{validationMessage}}</div>
+      <div class="form-group message" ng-style="{color: myColor}">
+        {{validationMessage}}
+      </div>
     </div>
   </body>
 </html>
